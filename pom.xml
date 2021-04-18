@@ -20,7 +20,6 @@
             <artifactId>junit-jupiter</artifactId>
             <version>5.4.2</version>
             <scope>test</scope>
-
         </dependency>
         <dependency>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -29,11 +28,16 @@
         </dependency>
     </dependencies>
 
-
+        <build>
+                <plugins>
                <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.1</version>
+
+                   <configuration>
+                       <failIfNoTests>true</failIfNoTests>
+                   </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -41,9 +45,6 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
-                        <configuration>
-                            <failIfNoTests>true</failIfNoTests>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>report</id>
@@ -54,4 +55,6 @@
                     </execution>
                 </executions>
             </plugin>
+            </plugins>
+        </build>
      </project>
